@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express'
+import { gql } from "apollo-server-express";
 
 export default gql`
   directive @auth on FIELD_DEFINITION
@@ -16,4 +16,4 @@ export default gql`
   type Subscription {
     _: String
   }
-`
+`;

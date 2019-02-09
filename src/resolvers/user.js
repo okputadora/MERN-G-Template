@@ -25,6 +25,7 @@ export default {
   },
   Mutation: {
     signUp: async (root, args, { req }, info) => {
+      console.log("someone is signing up");
       // TODO: projection
       await Joi.validate(args, signUp, { abortEarly: false });
 

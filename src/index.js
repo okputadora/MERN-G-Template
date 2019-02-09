@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import session from "express-session";
 import connectMongo from "connect-mongo";
+import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import typeDefs from "./typeDefs";
 import resolvers from "./resolvers";
@@ -54,7 +55,6 @@ import {
     const server = new ApolloServer({
       typeDefs,
       resolvers,
-      schemaDirectives,
       playground: IN_PROD
         ? false
         : {
@@ -64,9 +64,11 @@ import {
           },
       context: ({ req, res }) => ({ req, res })
     });
-
-    server.applyMiddleware({ app, cors: false });
-
+    app.use(cors());
+    server.applyMiddleware({ app });
+    app.use(() => {
+      console.log("req");
+    });
     app.listen({ port: APP_PORT }, () =>
       console.log(`http://localhost:${APP_PORT}${server.graphqlPath}`)
     );

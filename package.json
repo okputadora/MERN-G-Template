@@ -5,12 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production node -r esm .",
-    "dev": "concurrently \"nodemon -r esm\" \"cd client && yarn start\""
+    "dev": "concurrently \"nodemon --ignore ./client -r esm\" \"cd client && yarn start\""
   },
   "dependencies": {
     "apollo-server-express": "^2.2.6",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^2.0.3",
+    "cors": "^2.8.5",
     "esm": "^3.0.84",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
