@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Mutation, Query } from "react-apollo";
+import { Link } from "react-router-dom";
+
 import gql from "graphql-tag";
 export const Signup = () => {
   const [username, setUsername] = useState("");
@@ -36,6 +38,7 @@ export const Signup = () => {
   return (
     <div>
       <h1>Signup</h1>
+      <Link to="/login">Login</Link>
       <input
         type="text"
         name="name"

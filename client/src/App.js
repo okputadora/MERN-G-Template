@@ -1,13 +1,15 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import { Signup } from "./Signup";
 import Login from "./Login/Login";
 
 const App = props => {
   // console.log(props);
   return (
-    <div className="App">
-      <Signup />
-    </div>
+    <Switch>
+      <Route exact path="/" component={Signup} />
+      <Route path="/login" component={Login} />
+    </Switch>
   );
 };
 
